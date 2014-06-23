@@ -57,3 +57,6 @@ ids <- c("subjectID", "activity", "activityID")
 dataNames <- setdiff(colnames(dataSet), ids)
 melt_data <- melt(dataSet, id = ids, measure.vars = dataNames)
 cleanDataSet <- dcast(melt_data, subjectID + activity ~ variable, mean)
+
+# create output file
+write.table(cleanDataSet, "./cleanData.txt")
