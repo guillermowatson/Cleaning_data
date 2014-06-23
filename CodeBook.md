@@ -15,7 +15,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 Check the README.txt file for further details about this dataset.
 
-## Details about files included
+## Details about the files
 - 'features_info.txt': Shows information about the variables used on the feature vector.
 
 - 'features.txt': List of all features.
