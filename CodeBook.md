@@ -49,7 +49,7 @@ For each record in the dataset it is provided:
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
 
-## ```run_analysis.R``` detailed
+## ```run_analysis.R``` explained
 
 * Uses reshape2
 * Configuration: just update the "folder" variable in order to define the working directory (this will be used as the WD of the script)
@@ -58,3 +58,12 @@ The script then do the following steps in an automated fashion:
 
 1) Download & unzip the data
 2) Load the features and activity labels.
+3) By using the "procesaFiles" function, both the training and test data gets processed:
+3.1) Loads the observations, activity and subjects file
+3.2) Update the column names of the observations file using the features file
+3.3) Eliminate the unwanted columns (keep only the mean and std info)
+3.4) Add the columns regarding subjectsID and activityID to the observations file (cbinds activity and subjects files)
+3.5) Join the previous file with the activity labels by activityID (using merge function)
+4) Merge both processed files: training data with test data (using rbind)
+5) Calculate the means, grouping the info by subject and activity (in order to do this, previously the file is melted)
+6) Create the clean data set and export it to "cleanData.txt"
